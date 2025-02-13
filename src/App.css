@@ -1,0 +1,46 @@
+:root {
+  /* Base font size */
+  font-size: 16px;
+  
+  /* System font stack */
+  font-family: 'Ligconsolata', sans-serif;
+
+  /* Light theme variables */
+  --light-bg: #ffffff;
+  --light-text: #333333;
+  --light-primary: #FF9800;
+  --light-secondary: #FFF3E0;
+  --light-accent: #FFA726;
+  
+  /* Dark theme variables */
+  --dark-bg: #1a1a1a;
+  --dark-text: #e5e5e5;
+  --dark-primary: #FF9800;
+  --dark-secondary: #4A3215;
+  --dark-accent: #FFA726;
+}
+
+/* Default theme (light) */
+body {
+  font-family: inherit;
+  font-size: 1rem;
+  
+  --bg-color: var(--light-bg);
+  --text-color: var(--light-text);
+  --primary-color: var(--light-primary);
+  --secondary-color: var(--light-secondary);
+  --accent-color: var(--light-accent);
+  
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+}
+
+/* Dark theme */
+body.dark-theme {
+  --bg-color: var(--dark-bg);
+  --text-color: var(--dark-text);
+  --primary-color: var(--dark-primary);
+  --secondary-color: var(--dark-secondary);
+  --accent-color: var(--dark-accent);
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import HeaderLogo from './components/HeaderLogo';
 import menuIcon from '../../assets/menuIcon.svg';
+import ModelSelector from './components/ModelSelector';
 
 
 const SidebarLeftLayout: React.FC = () => {
@@ -29,6 +30,7 @@ const SidebarLeftLayout: React.FC = () => {
           }} 
         />
       </div>
+      <ModelSelector/>
     </div>
     
 

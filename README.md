@@ -2,7 +2,7 @@
 
 # For Developers
 
-Download the project: `yarn init`
+Download the project: `yarn install`
 
 Run the App: `yarn dev`
 

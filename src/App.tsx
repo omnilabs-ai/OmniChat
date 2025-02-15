@@ -1,26 +1,15 @@
 import './App.css'
 import AppLayout from './components/Layout'
-
-// Dark theme
-import { useEffect } from 'react'
+import { ThemeProvider } from '@mui/material/styles'
 import { useAtom } from 'jotai'
-import { themePersistAtom } from './atoms'
+import { themeAtom } from './atoms'
 
 function App() {
-
-  // Dark theme
-  const [isDarkTheme] = useAtom(themePersistAtom)
-  useEffect(() => {
-    if (isDarkTheme) {
-      document.body.classList.add('dark-theme')
-    }
-  }, [])
-
-
+  const [theme] = useAtom(themeAtom)
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <AppLayout/>
-    </>
+    </ThemeProvider>
   )
 }
 

@@ -1,39 +1,74 @@
-import React from 'react';
-import HeaderLogo from './components/HeaderLogo';
+import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
+import Item from '@mui/material/Grid2';
 import menuIcon from '../../assets/menuIcon.svg';
-import ModelSelector from './components/ModelSelector';
-
+import HeaderLogo from './components/HeaderLogo';
+import CostAccSlider from './components/CostAccSlider';
+import React from 'react';
+import { useAtom } from 'jotai';
+import { themeAtom } from '../../atoms';
 
 const SidebarLeftLayout: React.FC = () => {
-  return (
-    <div style={{
-      height: '100%',
-      backgroundColor: '#f5f5f5',
-      borderRight: '1px solid #e0e0e0',
-      fontSize: '2em',
-      
-      minWidth: '250px'
-    }}>
-      <div style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        padding: '0.5em',
-        }}>
-        <HeaderLogo />
-        <img 
-          src={menuIcon} 
-          alt="Menu" 
-          style={{
-            width: '1.5em',
-            height: '1.5em',
-            cursor: 'pointer'
-          }} 
-        />
-      </div>
-      <ModelSelector/>
-    </div>
-    
+  const [theme] = useAtom(themeAtom);
 
+  const image_component = () => {
+    return (
+      <img 
+        src={menuIcon} 
+        alt="Menu" 
+        style={{
+          maxWidth: '80%',
+          maxHeight: 'auto',
+          cursor: 'pointer',
+          paddingRight: '1em'
+        }} 
+      />
+    )
+  }
+
+  const CustomItem: React.FC<{
+    width?: string,
+    height?: string,
+    justifyContent?: string,
+    alignItems?: string,
+    sx?: object,
+    children?: React.ReactNode
+  }> = ({ 
+      width, 
+      height,
+      justifyContent = 'center',
+      alignItems = 'center',
+      sx = {},
+      children
+  }) => {
+    return (
+      <Item 
+        sx={{ 
+          width,
+          height,
+          // border: '1px solid blue', 
+          display: 'flex', 
+          justifyContent, 
+          alignItems,
+          ...sx
+        }}
+      >
+        {children}
+      </Item>
+    );
+  };
+
+  return (
+    <Box sx={{boxSizing: 'border-box', width: '100%', height: '100%', border: `1px solid ${theme.palette.divider}`}}>
+      <Stack direction="column" height='100%' justifyContent='space-between'>
+        <Stack direction="row" spacing={4} sx={{ height: '10%'}}>
+          <CustomItem width="80%" height="100%" justifyContent='flex-start'><HeaderLogo /></CustomItem>
+          <CustomItem width="20%" height="100%">{image_component()}</CustomItem>
+        </Stack>
+        <CustomItem width="100%" height="50%">size=6</CustomItem>
+        <CustomItem width="100%" height="15%" sx={{padding: '1em'}}><CostAccSlider /></CustomItem>
+      </Stack>
+    </Box>
   );
 };
 

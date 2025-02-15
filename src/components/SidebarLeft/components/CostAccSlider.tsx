@@ -1,21 +1,52 @@
 import React from 'react';
-
-// Use MUI Slider 
-// https://mui.com/material-ui/react-slider/
+import Box from '@mui/material/Box';
+import Slider from '@mui/material/Slider';
+import { useAtom } from 'jotai';
+import { costAccValue, themeAtom } from '../../../atoms';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import SpeedIcon from '@mui/icons-material/Speed';
+import styles from './CostAccSlider.module.css';
 
 const CostAccSlider: React.FC = () => {
-    return (
-      <div style={{
-        display: 'flex',
-        alignItems: 'center',
-        gap: '0.5em',
-        fontSize: '1em',
-        border: '2px solid black',
-        height: '100%'
-      }}>
-      </div>
-    );
-  };
-  
-  export default CostAccSlider;
+  const [theme] = useAtom(themeAtom);
+  const [value, setValue] = useAtom(costAccValue);
+
+  return (
+    <Box 
+      className={styles.container}
+      sx={{
+        backgroundColor: theme.palette.background.paper,
+        border: `1px solid ${theme.palette.primary.main}`,
+      }}
+    >
+      <Slider 
+        value={value}
+        onChange={(_, newValue) => setValue(newValue as number)}
+        aria-label="Cost-Accuracy Slider" 
+        valueLabelDisplay="auto"
+        sx={{
+          '& .MuiSlider-thumb': {
+            color: theme.palette.primary.main,
+          },
+          '& .MuiSlider-track': {
+            color: theme.palette.primary.main,
+          },
+          '& .MuiSlider-rail': {
+            color: theme.palette.primary.dark,
+          },
+        }}
+      />
+      <Box className={styles.labelContainer} sx={{ color: theme.palette.text.primary }}>
+        <Box className={styles.labelBox}>
+          <AttachMoneyIcon className={styles.icon} /> Cost
+        </Box>
+        <Box className={styles.labelBox}>
+          <SpeedIcon className={styles.icon} /> Accuracy
+        </Box>
+      </Box>
+    </Box>
+  );
+};
+
+export default CostAccSlider;
   

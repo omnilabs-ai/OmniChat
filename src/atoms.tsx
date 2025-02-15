@@ -1,4 +1,5 @@
 import { atom } from 'jotai'
+import { getTheme } from './theme/theme'
 
 const costAccValue = atom(50)
 
@@ -8,19 +9,10 @@ const selectedModels = atom(["gpt-4o", "dall-e-3"])
 
 const chatMessages = atom([])
 
-const themeAtom = atom(false)
+const themeModeAtom = atom<'light' | 'dark'>('light')
 
-const themePersistAtom = atom(
-  (get) => get(themeAtom),
-  (_, set, newValue: boolean) => {
-
-    set(themeAtom, newValue)
-    if (newValue) {
-      document.body.classList.add('dark-theme')
-    } else {
-      document.body.classList.remove('dark-theme')
-    }
-  }
+const themeAtom = atom(
+  (get) => getTheme(get(themeModeAtom))
 )
 
-export { userApiKey, selectedModels, chatMessages, themePersistAtom, costAccValue }
+export { userApiKey, selectedModels, chatMessages, costAccValue, themeModeAtom, themeAtom }

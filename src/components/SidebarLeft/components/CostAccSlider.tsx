@@ -41,7 +41,7 @@ const CostAccSlider: React.FC = () => {
           <AttachMoneyIcon className={styles.icon} /> Cost
         </Box>
         <Box className={styles.labelBox}>
-          <SpeedIcon className={styles.icon} /> Accuracy
+          <SpeedIcon className={styles.icon}  sx={{paddingRight: '5px'}}/> Accuracy
         </Box>
       </Box>
     </Box>

@@ -13,7 +13,7 @@ const HeaderLogo: React.FC = () => {
       display: 'flex',
       alignItems: 'center',
       gap: '0.5em',
-      fontSize: 'clamp(1.2rem, 1.5vw + 1rem, 4rem)',
+      fontSize: '2rem',
       padding: '0.5em',
       height: '100%'
     }}>
@@ -21,7 +21,7 @@ const HeaderLogo: React.FC = () => {
         src={omniLogo} 
         alt="Omni Logo" 
         style={{
-          height: "60%",
+          height: "3.5rem",
           width: 'auto'
         }} 
       />

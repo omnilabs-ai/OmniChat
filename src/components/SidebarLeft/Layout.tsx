@@ -59,14 +59,16 @@ const SidebarLeftLayout: React.FC = () => {
   };
 
   return (
-    <Box sx={{boxSizing: 'border-box', width: '100%', height: '100%', border: `1px solid ${theme.palette.divider}`}}>
+    <Box sx={{boxSizing: 'border-box', width: '100%', height: '100%', borderRight: `1px solid ${theme.palette.divider}`}}>
       <Stack direction="column" height='100%' justifyContent='space-between'>
-        <Stack direction="row" spacing={4} sx={{ height: '10%'}}>
+        <Stack direction="row" spacing={4} sx={{ height: '80px'}}>
           <CustomItem width="80%" height="100%" justifyContent='flex-start'><HeaderLogo /></CustomItem>
           <CustomItem width="20%" height="100%">{image_component()}</CustomItem>
         </Stack>
-        <CustomItem width="100%" height="30%" sx={{padding: '1em', margin: '10% 0'}}><ModelSelector/></CustomItem>
-        <CustomItem width="100%" height="15%" sx={{padding: '1em'}}><CostAccSlider /></CustomItem>
+        <Stack direction="column" height='90%' justifyContent='space-between' sx={{overflowY: 'auto'}}>
+          <CustomItem width="100%" height="300px" sx={{padding: '1em'}}><ModelSelector/></CustomItem>
+          <CustomItem width="100%" height="200px" sx={{padding: '1em'}}><CostAccSlider /></CustomItem>
+        </Stack>
       </Stack>
     </Box>
   );

@@ -1,12 +1,10 @@
-/* Import the Liconsolata font */
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap');
 
 :root {
   /* Base font size */
-  font-size: 16px;
+  font-size: 14px;
   
   /* System font stack */
-  font-family: 'Inconsolata', monospace;
+  font-family: ui-sans-serif, -apple-system, system-ui, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
 
   /* Light theme variables */
   --light-bg: #ffffff;
@@ -46,4 +44,23 @@ body.dark-theme {
   --primary-color: var(--dark-primary);
   --secondary-color: var(--dark-secondary);
   --accent-color: var(--dark-accent);
+}
+
+/* Global Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 8px;
+  background-color: #e7e7e7;
+  /* border: 1px solid #cacaca; */
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: #d1d0d0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b4b4b4;  /* color of the scroll thumb on hover */
 }

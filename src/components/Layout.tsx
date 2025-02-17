@@ -1,4 +1,5 @@
 import React from 'react';
+import Box from '@mui/material/Box';
 // import styles from './Layout.module.css';
 import SidebarLeftLayout from './SidebarLeft/Layout';
 import ContentAreaLayout from './ContentArea/Layout';
@@ -6,20 +7,21 @@ import ContentAreaLayout from './ContentArea/Layout';
 
 const Layout: React.FC = () => {
   return (
-    <div style={{
-      display: 'flex',
+    <Box style={{
+      // display: 'flex',
       width: '100%',
+      boxSizing: 'border-box',
       height: '100vh',
-      minWidth: '600px',
-      minHeight: '600px'
+      // minWidth: '600px',
+      // minHeight: '600px'
     }}>
-      <div style={{ flex: '2' }}>
+      <Box style={{width: '300px', height: '100%'}}>
         <SidebarLeftLayout />
+      </Box>
+      <div style={{ flex: 1}}>
+        {/* <ContentAreaLayout /> */}
       </div>
-      <div style={{ flex: '7' }}>
-        <ContentAreaLayout />
-      </div>
-    </div>
+    </Box>
   );
 };
 

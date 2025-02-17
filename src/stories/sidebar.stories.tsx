@@ -32,7 +32,18 @@ export const CostAccSlider: Story = () => (
 )
 
 export const ModelSelector: Story = () => (
-  <Box sx={{boxSizing: 'border-box', display: 'flex', flexDirection: 'column', height: '100px', maxWidth: '25vw', border: '1px solid #ccc' }}>
-    <ModelSelectorComponent/>
-  </Box>
+  <>
+    <h1>M</h1>
+    <Box sx={{boxSizing: 'border-box', display: 'flex', flexDirection: 'column', height: '180px', width: '284px', border: '1px solid #ccc' }}>
+      <ModelSelectorComponent/>
+    </Box>
+    <h1>L</h1>
+    <Box sx={{boxSizing: 'border-box', display: 'flex', flexDirection: 'column', height: '324px', width: '427px', border: '1px solid #ccc' }}>
+      <ModelSelectorComponent/>
+    </Box>
+    <h1>MH</h1>
+    <Box sx={{boxSizing: 'border-box', display: 'flex', flexDirection: 'column', height: '180px', width: '133px', border: '1px solid #ccc' }}>
+      <ModelSelectorComponent/>
+    </Box>
+  </>
 )

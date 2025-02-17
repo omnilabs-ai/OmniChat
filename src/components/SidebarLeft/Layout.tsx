@@ -7,7 +7,7 @@ import CostAccSlider from './components/CostAccSlider';
 import React from 'react';
 import { useAtom } from 'jotai';
 import { themeAtom } from '../../atoms';
-
+import ModelSelector from './components/ModelSelector';
 const SidebarLeftLayout: React.FC = () => {
   const [theme] = useAtom(themeAtom);
 
@@ -65,7 +65,7 @@ const SidebarLeftLayout: React.FC = () => {
           <CustomItem width="80%" height="100%" justifyContent='flex-start'><HeaderLogo /></CustomItem>
           <CustomItem width="20%" height="100%">{image_component()}</CustomItem>
         </Stack>
-        <CustomItem width="100%" height="50%">size=6</CustomItem>
+        <CustomItem width="100%" height="30%" sx={{padding: '1em', margin: '10% 0'}}><ModelSelector/></CustomItem>
         <CustomItem width="100%" height="15%" sx={{padding: '1em'}}><CostAccSlider /></CustomItem>
       </Stack>
     </Box>

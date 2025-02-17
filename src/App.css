@@ -1,9 +1,12 @@
+/* Import the Liconsolata font */
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap');
+
 :root {
   /* Base font size */
   font-size: 16px;
   
   /* System font stack */
-  font-family: 'Ligconsolata', sans-serif;
+  font-family: 'Inconsolata', monospace;
 
   /* Light theme variables */
   --light-bg: #ffffff;

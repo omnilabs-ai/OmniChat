@@ -16,7 +16,7 @@ const CostAccSlider: React.FC = () => {
       className={styles.container}
       sx={{
         backgroundColor: theme.palette.background.paper,
-        border: `1px solid ${theme.palette.primary.main}`,
+        border: `1px solid #E5E7EB`,
       }}
     >
       <Slider 

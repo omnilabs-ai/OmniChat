@@ -5,7 +5,7 @@ const costAccValue = atom(50)
 
 const userApiKey = atom('test-sk1o83e')
 
-const selectedModels = atom(["gpt-4o", "dall-e-3"])
+const selectedModels = atom(["gpt-4o", "dall-e-3", "gpt-4o-mini", "dall-e-2", "gpt-3.5-turbo"])
 
 const chatMessages = atom([])
 

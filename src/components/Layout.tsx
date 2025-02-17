@@ -11,7 +11,7 @@ const Layout: React.FC = () => {
       width: '100%',
       height: '100vh',
       minWidth: '600px',
-      minHeight: '680px'
+      minHeight: '600px'
     }}>
       <div style={{ flex: '2' }}>
         <SidebarLeftLayout />

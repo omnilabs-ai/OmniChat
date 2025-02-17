@@ -1,15 +1,30 @@
 import React from 'react';
+import { Box } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
+import { useAtom } from 'jotai';
+import { selectedModels } from '../../../atoms';
+import styles from './ModelSelector.module.css';
 
 const ModelSelector: React.FC = () => {
+    const [modelList] = useAtom(selectedModels);
+
     return (
-      <div style={{
-        display: 'flex',
-        alignItems: 'center',
-        gap: '0.5em',
-        fontSize: '1em',
-        border: '2px solid black',
-        height: '100%'
-      }}>
+      <div className={styles.container}>
+        <Box className={styles.header}>
+          <h3 className={styles.headerText}>Model</h3>
+          <AddIcon className={styles.addIcon} />
+        </Box>
+
+        <Box className={styles.modelGrid}>
+          {modelList.map((model, index) => (
+            <Box
+              key={index}
+              className={styles.modelItem}
+            >
+              {model}
+            </Box>
+          ))}
+        </Box>
       </div>
     );
   };

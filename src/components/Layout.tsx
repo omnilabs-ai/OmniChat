@@ -8,18 +8,27 @@ import ContentAreaLayout from './ContentArea/Layout';
 const Layout: React.FC = () => {
   return (
     <Box style={{
-      // display: 'flex',
       width: '100%',
       boxSizing: 'border-box',
       height: '100vh',
       // minWidth: '600px',
       // minHeight: '600px'
     }}>
-      <Box style={{width: '300px', height: '100%'}}>
+      <Box style={{
+        width: '300px', 
+        height: '100%',
+        float: 'left',
+        backgroundColor: '#ffffff',
+      }}>
         <SidebarLeftLayout />
       </Box>
-      <div style={{ flex: 1}}>
-        {/* <ContentAreaLayout /> */}
+      <div style={{
+        // marginLeft: '300px',
+        width: 'auto',
+        height: '100%',
+        backgroundColor: '#f5f5f5',
+      }}>
+        <ContentAreaLayout />
       </div>
     </Box>
   );

@@ -1,12 +1,11 @@
 import React from 'react';
 import omniLogo from '../../../assets/omnilogo.svg';
-import { Box, useMediaQuery } from '@mui/material';
+import { Box } from '@mui/material';
 import { themeAtom } from '../../../atoms';
 import { useAtom } from 'jotai';
 
 const HeaderLogo: React.FC = () => {
   const [theme] = useAtom(themeAtom);
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <Box sx={{
@@ -25,14 +24,14 @@ const HeaderLogo: React.FC = () => {
           width: 'auto'
         }} 
       />
-      {isSmallScreen ? null : <span style={{
+      <span style={{
         fontWeight: 'bold',
         letterSpacing: '0.05em',
         color: theme.palette.primary.main,
         display: 'inline'
       }}>
         OMNI
-      </span>}
+      </span>
     </Box>
   );
 };

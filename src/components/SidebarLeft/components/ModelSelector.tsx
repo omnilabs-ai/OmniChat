@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from '@mui/material';
+import { Box, Tooltip } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import { useAtom } from 'jotai';
 import { selectedModels } from '../../../atoms';
@@ -11,8 +11,10 @@ const ModelSelector: React.FC = () => {
     return (
       <div className={styles.container}>
         <Box className={styles.header}>
-          <h3 className={styles.headerText}>Model</h3>
-          <AddIcon className={styles.addIcon} />
+          <h3 className={styles.headerText}>Models</h3>
+          <Tooltip title="Coming Soon" arrow placement="top">
+            <AddIcon className={styles.addIcon} />
+          </Tooltip>
         </Box>
 
         <Box className={styles.modelGrid}>

@@ -11,8 +11,8 @@ const Layout: React.FC = () => {
       width: '100%',
       boxSizing: 'border-box',
       height: '100vh',
-      // minWidth: '600px',
-      // minHeight: '600px'
+      minWidth: '600px',
+      minHeight: '200px'
     }}>
       <Box style={{
         width: '300px', 

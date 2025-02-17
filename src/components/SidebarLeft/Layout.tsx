@@ -8,6 +8,8 @@ import React from 'react';
 import { useAtom } from 'jotai';
 import { themeAtom } from '../../atoms';
 import ModelSelector from './components/ModelSelector';
+import ThemeSwitch from '../Shared/themeSwitch';
+
 const SidebarLeftLayout: React.FC = () => {
   const [theme] = useAtom(themeAtom);
 
@@ -48,7 +50,7 @@ const SidebarLeftLayout: React.FC = () => {
       <Stack direction="column" height='100%' justifyContent='space-between'>
         <Stack direction="row" spacing={4} sx={{ height: '80px'}}>
           <CustomItem width="80%" height="100%" justifyContent='flex-start'><HeaderLogo /></CustomItem>
-          <CustomItem width="20%" height="100%"><MenuIcon/></CustomItem>
+          <CustomItem width="20%" height="100%"><ThemeSwitch /></CustomItem>
         </Stack>
         <Stack direction="column" height='90%' justifyContent='space-between' sx={{overflowY: 'auto'}}>
           <CustomItem width="100%" height="300px" sx={{padding: '1em'}}><ModelSelector/></CustomItem>

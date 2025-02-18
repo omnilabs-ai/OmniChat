@@ -9,8 +9,8 @@ export const getTheme = (mode: 'light' | 'dark') => createTheme({
       dark: '#F57C00', // Dark orange
     },
     background: {
-      default: mode === 'light' ? '#FFFFFF' : '#121212',
-      paper: mode === 'light' ? '#F9FAFB' : '#1E1E1E',
+      default: mode === 'light' ? '#FFFFFF' : '#212121',
+      paper: mode === 'light' ? '#F9FAFB' : '#545454',
     },
     text: {
       primary: mode === 'light' ? '#000000' : '#FFFFFF',

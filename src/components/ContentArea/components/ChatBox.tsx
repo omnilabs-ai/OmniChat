@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { Box, TextField, IconButton } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
+import { useAtom } from 'jotai';
+import { themeAtom } from '../../../atoms';
+import { sendMessageAction } from '../../../actions/messageActions';
 
 export const ChatBox: React.FC = () => {
   const [message, setMessage] = useState('');
+  const [theme] = useAtom(themeAtom);
 
-  const handleSend = () => {
-    if (message.trim()) {
-      // TODO: Implement send message functionality
-      console.log('Sending message:', message);
-      setMessage('');
-    }
+  const handleSend = async () => {
+    await sendMessageAction(message, () => setMessage(''));
   };
 
   const handleKeyPress = (event: React.KeyboardEvent) => {
@@ -23,14 +23,14 @@ export const ChatBox: React.FC = () => {
   return (
     <Box
       sx={{
-        border: '1px solid #ccc',
+        border: `1px solid ${theme.palette.divider}`,
         p: 2,
         borderRadius: '1rem',
         display: 'flex',
         gap: 1,
         alignItems: 'flex-end',
         paddingBottom: '1.5rem',
-        backgroundColor: '#F9FAFB'
+        backgroundColor: theme.palette.background.paper
       }}
     >
       <TextField

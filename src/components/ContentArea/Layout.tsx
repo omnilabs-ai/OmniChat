@@ -8,6 +8,8 @@ const ContentArea: React.FC = () => {
     <Stack
       sx={{
         boxSizing: 'border-box',
+        display: 'flex',
+        flexDirection: 'column',
         height: '100%',
         maxWidth: '768px',
         margin: 'auto',
@@ -20,16 +22,16 @@ const ContentArea: React.FC = () => {
       <Stack
         sx={{
           width: '100%',
-          height: 'auto',
           overflowY: 'auto',
+          flexGrow: 1,
         }}
       >
+        <h2 style={{ textAlign: 'center', color: 'gray' }}>Chat Title</h2>
         <MessageArea />
       </Stack>
       <Stack
         sx={{
           width: '100%',
-
         }}
       >
         <ChatBox />

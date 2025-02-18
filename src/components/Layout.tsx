@@ -3,9 +3,13 @@ import Box from '@mui/material/Box';
 // import styles from './Layout.module.css';
 import SidebarLeftLayout from './SidebarLeft/Layout';
 import ContentAreaLayout from './ContentArea/Layout';
+import { useAtom } from 'jotai';
+import { themeAtom } from '../atoms';
 
 
 const Layout: React.FC = () => {
+  const [theme] = useAtom(themeAtom);
+  
   return (
     <Box style={{
       width: '100%',
@@ -18,7 +22,7 @@ const Layout: React.FC = () => {
         width: '300px', 
         height: '100%',
         float: 'left',
-        backgroundColor: '#ffffff',
+        backgroundColor: theme.palette.background.default,
       }}>
         <SidebarLeftLayout />
       </Box>
@@ -26,7 +30,7 @@ const Layout: React.FC = () => {
         // marginLeft: '300px',
         width: 'auto',
         height: '100%',
-        backgroundColor: '#f5f5f5',
+        backgroundColor: theme.palette.background.default,
       }}>
         <ContentAreaLayout />
       </div>

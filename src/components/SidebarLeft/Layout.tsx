@@ -1,7 +1,6 @@
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Item from '@mui/material/Grid2';
-import MenuIcon from '@mui/icons-material/Menu';
 import HeaderLogo from './components/HeaderLogo';
 import CostAccSlider from './components/CostAccSlider';
 import React from 'react';

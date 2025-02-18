@@ -30,7 +30,7 @@ const MessageBox: React.FC<MessageBoxProps> = ({ message, type, style }) => {
     },
     assistant: {
       ...baseStyles,
-      backgroundColor: theme.palette.background.paper,
+      // backgroundColor: theme.palette.background.paper,
       color: theme.palette.text.primary,
       marginRight: 'auto',
     },

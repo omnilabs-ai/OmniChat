@@ -3,14 +3,14 @@ import { Box, TextField, IconButton } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import { useAtom } from 'jotai';
 import { themeAtom } from '../../../atoms';
-import { sendMessageAction } from '../../../actions/messageActions';
+import { smartSelectAction } from '../../../actions/messageActions';
 
 export const ChatBox: React.FC = () => {
   const [message, setMessage] = useState('');
   const [theme] = useAtom(themeAtom);
 
   const handleSend = async () => {
-    await sendMessageAction(message, () => setMessage(''));
+    await smartSelectAction(message, () => setMessage(''));
   };
 
   const handleKeyPress = (event: React.KeyboardEvent) => {

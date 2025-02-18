@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTheme } from '@mui/material/styles';
+import { MessageType } from '../../../types/chat';
 
-export type MessageType = 'user' | 'assistant';
 
 interface MessageBoxProps {
   message: string;

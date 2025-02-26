@@ -1,7 +1,11 @@
 import React from 'react';
 import { useTheme } from '@mui/material/styles';
 import { MessageType } from '../../../types/chat';
+import ReactMarkdown from 'react-markdown';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 
+// https://github.com/uiwjs/react-markdown-editor
 
 interface MessageBoxProps {
   message: string;
@@ -38,7 +42,12 @@ const MessageBox: React.FC<MessageBoxProps> = ({ message, type, style }) => {
 
   return (
     <div style={messageStyles[type]}>
-      {message}
+      {/* <ReactMarkdown>{message}</ReactMarkdown> */}
+      <ReactMarkdown
+        children={message}
+        remarkPlugins={[remarkMath]}
+        rehypePlugins={[rehypeKatex]}
+      />
     </div>
   );
 };

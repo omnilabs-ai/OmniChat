@@ -1,8 +1,6 @@
 export interface ChatMessage {
     role: string;
     content: string;
-    timestamp?: string;  // Added since it's used in your frontend
-    model?: string;      // Added since it's used in your frontend
 }
 
 export interface ChatCompletionRequest {
@@ -26,7 +24,7 @@ export type MessageType = 'user' | 'assistant';
 
 
 export interface SmartRouterRequest {
-    query: string;
+    messages: ChatMessage[];  // Changed to accept array of ChatMessage directly
     k?: number;
     model_names?: string[];
     rel_cost?: number;

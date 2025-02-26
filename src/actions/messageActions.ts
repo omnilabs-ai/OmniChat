@@ -25,8 +25,7 @@ export const sendMessageAction = async (message: string, clearInput: () => void)
         
         const newUserMessage: ChatMessage = {
             role: 'user',
-            content: message,
-            timestamp: new Date().toISOString(),
+            content: message
         };
         
         setAtom(chatMessages, (prev) => [...prev, newUserMessage]);
@@ -40,9 +39,7 @@ export const sendMessageAction = async (message: string, clearInput: () => void)
         
         const assistantMessage: ChatMessage = {
             role: 'assistant',
-            content: response.content,
-            timestamp: new Date().toISOString(),
-            model: 'Omni Smart Select'
+            content: response.content
         };
         
         setAtom(chatMessages, (prev) => [...prev, assistantMessage]);
@@ -53,8 +50,6 @@ export const sendMessageAction = async (message: string, clearInput: () => void)
         const errorMessage: ChatMessage = {
             role: 'assistant',
             content: 'Sorry, I couldn\'t process your request. Please try again later.',
-            timestamp: new Date().toISOString(),
-            model: 'Omni Smart Select'
         };
         setAtom(chatMessages, (prev) => [...prev, errorMessage]);
     }
@@ -63,30 +58,29 @@ export const sendMessageAction = async (message: string, clearInput: () => void)
 export const smartSelectAction = async (message: string, clearInput: () => void) => {
     clearInput();
     try {
-        const cost = getAtom(costAccValue);  // TypeScript knows this is a number
+        const cost = getAtom(costAccValue);
         console.log('Cost accuracy value:', cost);
         
         const newUserMessage: ChatMessage = {
             role: 'user',
             content: message,
-            timestamp: new Date().toISOString(),
         };
         setAtom(chatMessages, (prev) => [...prev, newUserMessage]);
 
         const request: SmartRouterRequest = {
-            query: message,
+            messages: getAtom(chatMessages) as ChatMessage[],
             rel_cost: Number(cost)/100,
             rel_latency: 0,
             rel_accuracy: 1 - (Number(cost)/100)
         };
 
+        console.log('Request:', request);
+
         const response = await smartSelect(request);
 
         const assistantMessage: ChatMessage = {
             role: 'assistant',
-            content: response.content,
-            timestamp: new Date().toISOString(),
-            model: 'Omni Smart Select'
+            content: response.content
         };
         
         setAtom(chatMessages, (prev) => [...prev, assistantMessage]);
@@ -96,9 +90,7 @@ export const smartSelectAction = async (message: string, clearInput: () => void)
         console.error('Failed to send message:', error);
         const errorMessage: ChatMessage = {
             role: 'assistant',
-            content: 'Sorry, I couldn\'t process your request. Please try again later.',
-            timestamp: new Date().toISOString(),
-            model: 'Omni Smart Select'
+            content: 'Sorry, I couldn\'t process your request. Please try again later.'
         };
         setAtom(chatMessages, (prev) => [...prev, errorMessage]);
     }

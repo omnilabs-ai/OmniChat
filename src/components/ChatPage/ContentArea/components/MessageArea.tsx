@@ -1,8 +1,8 @@
 import React from 'react';
 import MessageBox from './MessageBox';
 import { useAtom } from 'jotai';
-import { chatMessages } from '../../../atoms';
-import { ChatMessage, MessageType } from '../../../types/chat';
+import { chatMessages } from '../../../../atoms';
+import { ChatMessage, MessageType } from '../../../../types/chat';
 
 const MessageArea: React.FC = () => {
   const [messages] = useAtom(chatMessages);

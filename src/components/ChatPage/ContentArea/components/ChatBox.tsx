@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Box, TextField, IconButton } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import { useAtom } from 'jotai';
-import { themeAtom } from '../../../atoms';
-import { smartSelectAction } from '../../../actions/messageActions';
+import { themeAtom } from '../../../../atoms';
+import { smartSelectAction } from '../../../../actions/messageActions';
 
 export const ChatBox: React.FC = () => {
   const [message, setMessage] = useState('');

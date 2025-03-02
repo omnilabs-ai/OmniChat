@@ -1,14 +1,16 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-// import styles from './Layout.module.css';
 import SidebarLeftLayout from './SidebarLeft/Layout';
 import ContentAreaLayout from './ContentArea/Layout';
 import { useAtom } from 'jotai';
-import { themeAtom } from '../atoms';
+import { themeAtom } from '../../atoms';
+import { Avatar } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 
 const Layout: React.FC = () => {
   const [theme] = useAtom(themeAtom);
+  const navigate = useNavigate();
   
   return (
     <Box style={{
@@ -34,6 +36,17 @@ const Layout: React.FC = () => {
       }}>
         <ContentAreaLayout />
       </div>
+      <Avatar
+        sx={{
+          position: 'absolute',
+          top: '1rem',
+          right: '1rem',
+          cursor: 'pointer',
+          bgcolor: 'primary.main',
+        }}
+        onClick={() => navigate('/profile')}
+      >
+      </Avatar>
     </Box>
   );
 };

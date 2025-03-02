@@ -14,11 +14,11 @@ const ContentArea: React.FC = () => {
         maxWidth: '768px',
         margin: 'auto',
         padding: '1rem',
-        
         // border: '1px solid #e0e0e0',
       }}
       spacing={2}
     >
+      
       <Stack
         sx={{
           width: '100%',

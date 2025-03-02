@@ -1,10 +1,8 @@
 import type { Story } from "@ladle/react";
 import '../App.css';
-
-
 import Box from "@mui/material/Box";
-import ChatBoxComponent from "../components/ContentArea/components/ChatBox";
-import MessageBoxComponent from "../components/ContentArea/components/MessageBox";
+import ChatBoxComponent from "../components/ChatPage/ContentArea/components/ChatBox";
+import MessageBoxComponent from "../components/ChatPage/ContentArea/components/MessageBox";
 
 export default {
     title: "Content Area",

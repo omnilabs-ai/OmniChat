@@ -2,7 +2,7 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import { useAtom } from 'jotai';
-import { costAccValue, themeAtom } from '../../../atoms';
+import { costAccValue, themeAtom } from '../../../../atoms';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import SpeedIcon from '@mui/icons-material/Speed';
 import styles from './CostAccSlider.module.css';

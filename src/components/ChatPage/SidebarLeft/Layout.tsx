@@ -5,9 +5,10 @@ import HeaderLogo from './components/HeaderLogo';
 import CostAccSlider from './components/CostAccSlider';
 import React from 'react';
 import { useAtom } from 'jotai';
-import { themeAtom } from '../../atoms';
+import { themeAtom } from '../../../atoms';
 import ModelSelector from './components/ModelSelector';
-import ThemeSwitch from '../Shared/themeSwitch';
+import ThemeSwitch from '../../Shared/themeSwitch';
+import SignOutButton from './components/SignOutButton';
 
 const SidebarLeftLayout: React.FC = () => {
   const [theme] = useAtom(themeAtom);
@@ -54,7 +55,9 @@ const SidebarLeftLayout: React.FC = () => {
         <Stack direction="column" height='90%' justifyContent='space-between' sx={{overflowY: 'auto'}}>
           <CustomItem width="100%" height="300px" sx={{padding: '1em'}}><ModelSelector/></CustomItem>
           <CustomItem width="100%" height="200px" sx={{padding: '1em'}}><CostAccSlider /></CustomItem>
+          <CustomItem width="100%" sx={{padding: '1em'}}><SignOutButton /></CustomItem>
         </Stack>
+        
       </Stack>
     </Box>
   );

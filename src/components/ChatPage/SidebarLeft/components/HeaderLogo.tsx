@@ -1,7 +1,7 @@
 import React from 'react';
-import omniLogo from '../../../assets/omnilogo.svg';
+import omniLogo from '../../../../assets/omnilogo.svg';
 import { Box } from '@mui/material';
-import { themeAtom } from '../../../atoms';
+import { themeAtom } from '../../../../atoms'; 
 import { useAtom } from 'jotai';
 
 const HeaderLogo: React.FC = () => {

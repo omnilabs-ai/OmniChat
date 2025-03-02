@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Tooltip } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import { useAtom } from 'jotai';
-import { selectedModels, themeAtom } from '../../../atoms';
+import { selectedModels, themeAtom } from '../../../../atoms';
 import styles from './ModelSelector.module.css';
 
 const ModelSelector: React.FC = () => {

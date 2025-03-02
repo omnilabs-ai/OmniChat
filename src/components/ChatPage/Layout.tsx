@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import SidebarLeftLayout from './SidebarLeft/Layout';
-import ContentAreaLayout from './ContentArea/Layout';
+import ContentAreaLayout from './ChatArea/Layout';
 import { useAtom } from 'jotai';
 import { themeAtom } from '../../atoms';
 import { Avatar } from '@mui/material';

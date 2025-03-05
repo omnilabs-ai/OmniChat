@@ -19,12 +19,19 @@ const MessageBox: React.FC<MessageBoxProps> = ({ message, type, style }) => {
   const theme = useTheme();
 
   const baseStyles: React.CSSProperties = {
-    padding: '12px',
+    // padding: '12px',
+    // padding: '1px 12px',
+    padding: '0.0005rem 1.5rem',
     borderRadius: '8px',
-    marginBottom: '12px',
+    boxSizing: 'border-box',
+    // marginBottom: '12px',
+    marginBottom: '8px',
     width: 'fit-content',
     maxWidth: '80%',
-    wordBreak: 'break-word',
+    // wordBreak: 'break-word',
+    alignItems: 'center',
+    lineHeight: '2',
+    fontSize: '15px',
     ...style,
   };
 
@@ -34,6 +41,8 @@ const MessageBox: React.FC<MessageBoxProps> = ({ message, type, style }) => {
       backgroundColor: theme.palette.primary.main,
       color: theme.palette.primary.contrastText,
       marginLeft: 'auto',
+      // height: 'auto',
+      // maxHeight: '70px',
     },
     assistant: {
       ...baseStyles,
@@ -65,6 +74,11 @@ const MessageBox: React.FC<MessageBoxProps> = ({ message, type, style }) => {
                     marginTop: '1rem',
                     marginBottom: '1rem',
                     overflow: 'hidden',
+                    width: '120%',
+                    // maxWidth: 'calc(100% + 32px)',
+                    maxWidth: '200%',
+                    overflowX: 'auto',
+                    fontSize: '0.9rem',
                   }}
                 >
                   {/* language label  */}
@@ -80,37 +94,50 @@ const MessageBox: React.FC<MessageBoxProps> = ({ message, type, style }) => {
                     {language}
                   </div>
 
-                  <SyntaxHighlighter
-                    language={language}
-                    // language="jsx"
-                    // style={docco}
-                    // style={atomDark}
-                    style={materialDark}
-                    wrapLongLines
-                    customStyle={{
-                      backgroundColor: "transparent",
-                      // backgroundColor: "#191919",
-                      // borderRadius: "0.8em",
-                      // opacity: "1",
-                      // marginTop: "2rem",
-                      // marginBottom: '1rem',
+                  {/*  horizontal scroll */}
+                  <div
+                    style={{
+                      overflowX: 'auto', // enable horizontal scroll
+                      width: '100%',
+                      scrollbarWidth: 'thin',
+                      scrollbarColor: '#585858 #191919',
                     }}
-                    codeTagProps={{
-                      style: {
-                        color: "white",
-                      },
-                    }}
-                    {...props}
                   >
-                    {String(children).replace(/\n$/, '')}
-                  </SyntaxHighlighter>
+                    <SyntaxHighlighter
+                      language={language}
+                      // language="jsx"
+                      // style={docco}
+                      // style={atomDark}
+                      style={materialDark}
+                      // wrapLongLines
+                      wrapLongLines={false}
+                      customStyle={{
+                        backgroundColor: "transparent",
+                        padding: '1rem'
+                      }}
+                      codeTagProps={{
+                        style: {
+                          color: "white",
+                          whiteSpace: 'pre',
+                        },
+                      }}
+                      {...props}
+                    >
+                      {String(children).replace(/\n$/, '')}
+                    </SyntaxHighlighter>
+                  </div>
                 </div>
 
               );
             }
             // inline code
             else {
-              return <code className={className} {...props}>{children}</code>;
+              return <code className={className}
+                style={{
+                  fontSize: '13px', // smaller font  
+                  fontFamily: 'monospace',
+                }}
+                {...props}>{children}</code>;
             }
           },
         }}

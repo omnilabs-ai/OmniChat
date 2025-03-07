@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { auth, googleProvider } from '../../../config/firebase';
 import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
+import './signin.css';
 
 const SignIn = ({ setSignin }: { setSignin: (value: boolean) => void }) => {
   const [email, setEmail] = useState('');
@@ -29,34 +30,51 @@ const SignIn = ({ setSignin }: { setSignin: (value: boolean) => void }) => {
   };
 
   return (
-    <div>
-      <h2>Sign In</h2>
-      <form onSubmit={handleSignIn}>
-        <div>
+    <div className="signin-container">
+      <h2 className="signin-title">Sign In</h2>
+      <form onSubmit={handleSignIn} className="signin-form">
+        <div className="form-group">
           <label htmlFor="email">Email</label>
           <input
             type="email"
+            id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            className="form-input"
+            placeholder="Enter your email"
+            required
           />
         </div>
 
-        <div>
+        <div className="form-group">
           <label htmlFor="password">Password</label>
           <input
             type="password"
+            id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            className="form-input"
+            placeholder="Enter your password"
+            required
           />
         </div>
 
-        <button type="submit">Sign In</button>
+        <button type="submit" className="signin-button">
+          Sign In
+        </button>
       </form>
 
-      <button onClick={() => setSignin(false)}>Don't have an account? Sign up</button>
-      
+      <div className="signup-link">
+        <button onClick={() => setSignin(false)} className="link-button">
+          Don't have an account? Sign up
+        </button>
+      </div>
 
-      <button onClick={signInWithGoogle}>Sign in with Google</button>
+      <div className="divider">or</div>
+
+      <button onClick={signInWithGoogle} className="google-button">
+        Sign in with Google
+      </button>
     </div>
   );
 };

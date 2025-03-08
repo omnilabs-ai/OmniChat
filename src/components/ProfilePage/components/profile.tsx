@@ -14,21 +14,16 @@ const Profile: React.FC = () => {
         >
           {currentUser?.email?.charAt(0).toUpperCase()}
         </Avatar>
-        <Box>
-          <Typography variant="h5">{currentUser?.displayName || 'User'}</Typography>
-          <Typography color="textSecondary">{currentUser?.email}</Typography>
-        </Box>
       </Box>    
 
-      <Box sx={{ mb: 3 }}>
-        <Typography variant="h6" gutterBottom>Account Information</Typography>
-        <Typography>Email verified: {currentUser?.emailVerified ? 'Yes' : 'No'}</Typography>
-        <Typography>Account created: {currentUser?.metadata.creationTime}</Typography>
+      <Box sx={{height: '100vh', width: '100vh'}}>
+        <Typography sx = {{fontFamily: 'monospace', fontSize: 16}}>Email: {currentUser?.email}</Typography>
+        <Typography sx = {{fontFamily: 'monospace', fontSize: 16, mt: 1.7}}>Password: {"********"}</Typography>
+        <Button sx = {{mt: 10, backgroundColor: 'white', borderColor: 'darkgray', borderWidth: 5, borderStyle: 'solid'}} variant="contained">
+        Upgrade to Pro
+      </Button>
       </Box>
 
-      <Button variant="contained" color="primary">
-        Edit Profile
-      </Button>
     </Paper>
   );
 };

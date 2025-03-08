@@ -9,7 +9,7 @@ export const userApiKey = atom('test-sk1o83e')
 export const userQuery = atom('')
 
 export const selectedModels = atom([
-  "Omni Smart Select"
+  "Omni Smart Select", "GPT-4o"
 ])
 // const selectedModels = atom([
 //   "gpt-4o", "dall-e-3", "gpt-4o-mini", "dall-e-2", "gpt-3.5-turbo", 
